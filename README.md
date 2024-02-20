@@ -8,6 +8,7 @@ Essa API foi desenvolvida para prática de conhecimentos, é uma API simples de 
 - Java 17
 - REST
 - Spring Framework 3
+- Spring Data JPA
 - Maven
 - Banco de dados em memória H2
 - Junit
