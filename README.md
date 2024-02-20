@@ -18,3 +18,5 @@ Essa API foi desenvolvida para prática de conhecimentos, é uma API simples de 
 ## Modelagem das classes de domínio
 ![image](https://github.com/Gabrielv7/api-task/assets/53438847/919d432b-cd48-4075-8a7f-977ba19954a2)
 
+## Endpoints
+![image](https://github.com/Gabrielv7/api-task/assets/53438847/4cfcd45c-c891-49bd-acbd-28eedf055f3d)
