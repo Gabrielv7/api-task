@@ -11,9 +11,7 @@ Essa API foi desenvolvida para prática de conhecimentos, é uma API simples de 
 - Spring Data JPA
 - Maven
 - Banco de dados em memória H2
-- Junit
-- Mockito
-- Jacoco
+- Junit | Mockito | Jacoco
 - Swagger
   
 ## Modelagem das classes de domínio
