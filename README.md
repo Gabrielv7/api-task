@@ -1,5 +1,5 @@
 
-# API REST de tarefas
+# API REST de gerenciamento de tarefas
 
 Essa API foi desenvolvida para prática de conhecimentos, é uma API simples de usar, basta cadastrar uma categoria e uma tarefa condizente com a categoria cadastrada.
 
