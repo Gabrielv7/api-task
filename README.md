@@ -1,5 +1,5 @@
 
-# API REST de tarefas
+# API REST de gerenciamento de tarefas
 
 Essa API foi desenvolvida para prática de conhecimentos, é uma API simples de usar, basta cadastrar uma categoria e uma tarefa condizente com a categoria cadastrada.
 
@@ -11,9 +11,7 @@ Essa API foi desenvolvida para prática de conhecimentos, é uma API simples de 
 - Spring Data JPA
 - Maven
 - Banco de dados em memória H2
-- Junit
-- Mockito
-- Jacoco
+- Junit | Mockito | Jacoco
 - Swagger
   
 ## Modelagem das classes de domínio
