@@ -15,11 +15,11 @@ public class TaskValidator {
     private MessageSource messageSource;
 
     public void validateTaskAlreadyExists(Task task, Category category) {
-        boolean alreadyExists = category.getTasks()
+        boolean taskAlreadyExists = category.getTasks()
                 .stream().anyMatch(t -> t.getDescription().equals(task.getDescription()) &&
                         t.getDate().equals(task.getDate()));
 
-        if (alreadyExists) {
+        if (taskAlreadyExists) {
             String messageError = messageSource.getMessage("task.already.registered", null, LocaleContextHolder.getLocale());
             throw new BusinessException(String.format(messageError, task.getDescription()));
         }

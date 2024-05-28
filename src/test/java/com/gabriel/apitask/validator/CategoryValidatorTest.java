@@ -14,8 +14,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.context.MessageSource;
 
-import java.util.Optional;
-
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.any;
@@ -46,18 +44,18 @@ class CategoryValidatorTest {
 
     @Test
     void Dado_uma_categoria_ja_cadastra_Quando_criar_Entao_deve_lancar_Exception() {
-        when(repository.findByName(anyString())).thenReturn(Optional.of(category));
+        when(repository.existsByName(anyString())).thenReturn(true);
         when(messageSource.getMessage(any(), any(), any())).thenReturn(anyString());
 
         assertThrows(BusinessException.class, () -> validator.validateCategoryAlreadyExists(category));
 
-        verify(repository, times(1)).findByName(anyString());
+        verify(repository, times(1)).existsByName(anyString());
         verify(messageSource, times(1)).getMessage(any(), any(), any());
     }
 
     @Test
     void Dado_uma_categoria_nao_cadastrada_Quando_criar_Entao_nao_deve_lancar_Exception() {
-        when(repository.findByName(anyString())).thenReturn(Optional.empty());
+        when(repository.existsByName(anyString())).thenReturn(false);
         assertDoesNotThrow(() -> validator.validateCategoryAlreadyExists(ScenarioFactory.newCategory()));
     }
 

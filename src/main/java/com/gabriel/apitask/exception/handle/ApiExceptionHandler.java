@@ -11,7 +11,6 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.springframework.web.context.request.WebRequest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +39,7 @@ public class ApiExceptionHandler {
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, WebRequest request) {
+    public ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex) {
 
         List<ErrorField> fieldErrors = new ArrayList<>();
 
@@ -48,13 +47,14 @@ public class ApiExceptionHandler {
             fieldErrors.add(new ErrorField(field.getField(), field.getDefaultMessage()));
         }
 
-        ErrorDTO errorDTO = buildErrorsValidationResponse(BAD_REQUEST, "Request invalid", fieldErrors);
+        ErrorDTO errorDTO = buildErrorsValidationResponse(fieldErrors);
         return ResponseEntity.badRequest().body(errorDTO);
     }
 
-    private ErrorDTO buildErrorsValidationResponse(HttpStatus httpStatus, String message, List<ErrorField> errorFields) {
+    private ErrorDTO buildErrorsValidationResponse(List<ErrorField> errorFields) {
+        String message = "Request invalid";
         return ErrorDTO.builder()
-                .status(httpStatus.value())
+                .status(BAD_REQUEST.value())
                 .message(message)
                 .errors(errorFields)
                 .build();

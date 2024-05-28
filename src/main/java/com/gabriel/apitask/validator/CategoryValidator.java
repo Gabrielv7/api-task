@@ -18,9 +18,13 @@ public class CategoryValidator {
     private MessageSource messageSource;
 
     public void validateCategoryAlreadyExists(Category category) {
-        if (categoryRepository.findByName(category.getName()).isPresent()) {
+        if (categoryAlreadyExist(category)) {
             String messageError = messageSource.getMessage("category.already.registered", null, LocaleContextHolder.getLocale());
             throw new BusinessException(String.format(messageError, category.getName()));
         }
+    }
+
+    private boolean categoryAlreadyExist(Category category) {
+        return categoryRepository.existsByName(category.getName());
     }
 }

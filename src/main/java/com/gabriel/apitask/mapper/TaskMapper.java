@@ -5,9 +5,6 @@ import com.gabriel.apitask.dto.response.TaskResponse;
 import com.gabriel.apitask.model.Task;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 @Component
 public class TaskMapper {
 

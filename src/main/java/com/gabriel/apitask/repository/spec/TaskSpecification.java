@@ -9,6 +9,8 @@ import java.time.LocalDate;
 @Component
 public class TaskSpecification {
 
+    private TaskSpecification() {}
+
     public static Specification<Task> byData(LocalDate date) {
         return ((root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("date"), date));
     }
